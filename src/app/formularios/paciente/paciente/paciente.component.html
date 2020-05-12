@@ -1,1 +1,38 @@
-<p>paciente works!</p>
+<h1>Datos Paciente</h1>
+
+
+<form [formGroup]='pacienteForm' (ngSubmit)=submit()>
+    <div class="datosPaciente">
+        <label>Nombre
+            <input type="text" formControlName="nombre">
+        </label>
+        <label>Apellido
+            <input type="text" formControlName="apellido">
+        </label>
+        <label>Edad
+            <input type="text" formControlName="edad">
+        </label>
+    </div>
+
+    <div formGroupName="direccion" class="direccion">
+        <h3>Dirección</h3>
+        <label>Calle
+            <input type="text" formControlName="calle">
+        </label>
+        <label>N°
+            <input type="text" formControlName="numero">
+        </label>
+    </div>
+
+    <div formArrayName="telefonos">
+        <h3>Teléfonos</h3>
+        <div *ngFor="let telefono of telefonos.controls; let i = index" class="telefono">
+            <label>
+                Teléfono <input type="text" [formControlName]="i">
+            </label>
+        </div>
+        <button (click)="agregarTelefono()">Agregar Teléfono</button>
+    </div>
+
+    <button type="submit">Guardar</button>
+</form>

@@ -1,1 +1,23 @@
-<p>hospital works!</p>
+<h1>Hospital</h1>
+
+
+<form [formGroup]='hospitalForm' (ngSubmit)=submit()>
+    <div class="hospitalPaciente">
+        <label>Hospital
+            <input type="text" formControlName="nombre">
+        </label>
+    </div>
+
+    <div formGroupName="direccion" class="direccion">
+        <h3>Dirección</h3>
+        <label>Calle
+            <input type="text" formControlName="calle">
+        </label>
+        <label>N°
+            <input type="text" formControlName="numero">
+        </label>
+    </div>
+
+
+    <button type="submit">Guardar</button>
+</form>
